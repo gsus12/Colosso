@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Colosso - {% block titulo %}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initi	al-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap-theme.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/otro.css">
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.8.3.js"></script>	
+	<script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/funcion.js"></script>
+	<style type="text/css">
+
+	</style>
+</head>
+
+<section class="container-fluid">
+	<body>
+		<nav class="navbar navbar-fixed-top navbar-default" role="navegation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-page-my-collapse-1">
+						<span class="sr-only">Supremoo</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/" class="navbar-brand">ASucaR</a>
+				</div>
+				<div class="collapse navbar-collapse"id="nav-page-my-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/listar_orden">Ordenes</a></li>
+						<li><a href="/orden_de_trabajo">Facturacion</a></li>
+						<li><a href="/login">Salir</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		{% block contenido %}{% endblock %}
+	</body>
+</section>
+</html>

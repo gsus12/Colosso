@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{%block titulo%}Lista de Ordenes{%endblock%}
+
+{%block contenido%}
+
+
+<div class="container container-center" >
+	<div class="alert alert-warning">
+		Algo por quaias
+		<button type="button" class="close" data-dismiss="alert">x</button>
+	</div>
+	<div class="progress" >
+		<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width:100%;">
+			100%
+		</div>
+		<div class="progress-bar progress-bar-success active" style="width:12%;"></div>
+	</div>
+	<div class="well well-default">
+		erda
+	</div>
+	<h1>Lista de Ordenes</h1>
+	<button class="btn btn-info">
+		Agregar
+		<span class="glyphicon glyphicon-plus"></span>
+	</button>
+	<br><br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Cliente</th>
+				<th>Nombre Trabajo</th>
+				<th>Fecha</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<ul class="pagination pagination-center">
+		<li><a>Ant</a></li>
+		<li><a>1</a></li>
+		<li><a>2</a></li>
+		<li><a>3</a></li>
+		<li><a>Sig</a></li>
+	</ul><br>
+
+	<button class="btn btn-danger" style="text-align:center;">
+			Regresar
+		<span class="glyphicon glyphicon-remove"></span>
+	</button>
+
+
+</div>
+
+{%endblock%}
