@@ -139,16 +139,32 @@ $(document).ready(function() {
 			data:"id="+$(this).attr("id"),
 			success: function (data){
 				var url='/agregar_cliente/';
-				$(location).attr('href',url);
-				for(var i in data){
-					contener = data[i];
-					$("#nit").val("contener.nit");
-					$("#nombre_cliente").val(contener.nombre);
-					$("#apellido_cliente").val(contener.apellido);
-				}					
+				redirigir(url, function(){
+					alert("-_-");	
+				});
+				// for(var i in data){
+				// 	contener = data[i];
+				// 	$("#nit").val(contener.nit);
+				// 	$("#nombre_cliente").val(contener.nombre);
+				// 	$("#apellido_cliente").val(contener.apellido);
+				// }					
 			}
 		})
 	});
+	$(".eliminar").click(function(){
+		id = $(this).attr("id");
+		$.ajax({
+			url:"/eliminar_cliente/",
+			data: "id="+id,
+			type: "GET",
+			success: function(respuesta){
+				var url = '/listar_cliente/';
+				redirigir(url);
+				contener = data;
+				alert ('se elimino correctamente el usuario con el id '+contener.exito);
+			}
+		});
+	})
 	function guardar_orden(){
 		for (var i = 0; i < arguments.length; i++) {
 			datos = datos + arguments[i].attr("id")+"="+arguments[i].val() + "&&";
@@ -168,10 +184,7 @@ $(document).ready(function() {
 		for (var i = 0; i < arguments.length; i++) {
 			datos = datos + arguments[i].attr("id")+"="+arguments[i].val() + "&&";
 		}
-		// alert(arguments[i].attr("id"));
-		// datos="nit="+arguments[0]+"&&nombre_cliente="+arguments[1]+"&&apellido_cliente="+arguments[2]+"&&razon_social="+arguments[3]+"&&telefono="+arguments[4]+"&&direccion="+arguments[5]+"&&ciudad="+arguments[6];
 		alert(datos);
-
 		$.ajax({
 			url:'/guardar_cliente/',
 			type:'GET',
@@ -181,6 +194,10 @@ $(document).ready(function() {
 				$(location).attr('href',url);
 			}
 		})
+	}
+	function redirigir(url){
+		$(location).attr('href',url);
+		
 	}
 
 });

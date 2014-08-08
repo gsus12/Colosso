@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+
+{% block titulo %}{{datos.nit}}{% endblock %}
+{% block contenido %}
+	<div class="col-sm-6 col-sm-offset-3 text-center">
+		<div class="panel panel-primary">
+			<div class="panel-heading text-center">
+				Ver Cliente
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="">Nit</label>
+						<p>{{datos.nit}}</p>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="">Nombre</label>
+						<p>{{datos.nombre}}</p>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="">Apellido</label>
+						<p>{{datos.apellido}}</p>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="panel panel-success">
+					<div class="panel-heading">
+						Negocios
+					</div>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>Razon social</th>
+									<th>Telefono</th>
+									<th>Direccion</th>
+									<th>Ciudad</th>
+								</tr>
+							</thead>
+							<tbody>
+								{%for data in negocios%}
+									<tr>
+										<td>{{data.id}}</td>
+										<td>{{data.razon_social}}</td>
+										<td>{{data.telefono}}</td>
+										<td>{{data.direccion}}</td>
+										<td>{{data.ciudad}}</td>
+									</tr>
+
+								{%endfor%}				
+							</tbody>							
+						</table>
+					</div>
+					<div class="col-sm-12">
+						<div class="text-right">
+							<button class="btn btn-primary">Empresa
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="text-center">
+					<a href="/listar_cliente/" class="btn btn-danger">Regresar</a>
+				</div>
+			</div>
+		</div>			
+	</div>
+	
+{% endblock %}

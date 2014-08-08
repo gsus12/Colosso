@@ -32,11 +32,18 @@
 					<td>{{dato.nit}}</td>
 					<td>{{dato.nombre}} {{dato.apellido}}</td>
 					<td>
-					<button type="button" class="btn btn-defaut btn-sm ver" id="{{dato.id}}">
+					<!-- <button type="button" class="btn btn-defaut btn-sm ver" id="{{dato.id}}">
 						<span class="glyphicon glyphicon-eye-open"></span>	
 					</button>
-					<button type="button" class="btn btn-defaut btn-sm modificar" id="{{dato.id}}">
+					 -->
+					<a href="/ver_cliente/{{dato.id}}" class="btn btn-default btn-sm" id="{{dato.id}}">
+						<span class="glyphicon glyphicon-eye-open"></span>
+					</a>
+					<button type="button" class="btn btn-default btn-sm modificar" id="{{dato.id}}">
 						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-sm eliminar" id="{{dato.id}}">
+						<span class="glyphicon glyphicon-remove"></span>
 					</button>
 					</td>
 				</tr>

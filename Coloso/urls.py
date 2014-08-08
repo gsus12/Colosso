@@ -11,12 +11,13 @@ urlpatterns = patterns('',
     url(r'^orden_de_trabajo', 'Principal.views.orden', name='orden'),
     url(r'^agregar_cliente', 'Principal.views.cliente', name='cliente'),
     url(r'^guardar_cliente', 'Principal.views.guardar_cliente', name='gcliente'),
-    url(r'^ver_cliente', 'Principal.views.ver_cliente', name='vcliente'),
+    url(r'^ver_cliente/(?P<id_persona>\w+)$', 'Principal.views.ver_cliente', name='vcliente'),
+    url(r'^eliminar_cliente', 'Principal.views.eliminar_cliente', name='ecliente'),
     url(r'^login','Principal.views.login', name='login'),
     url(r'^listar_orden','Principal.views.listar_orden', name='listar_orden'),
     url(r'^listar_cliente','Principal.views.listar_cliente', name='listar_cliente'),
     url(r'^guardar_orden','Principal.views.guardar_orden', name='guardar_orden'),
-
+    
     # url(r'^Coloso/', include('Coloso.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
