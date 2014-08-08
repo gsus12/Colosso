@@ -9,8 +9,13 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'Principal.views.inicio', name='inicio'),
     url(r'^orden_de_trabajo', 'Principal.views.orden', name='orden'),
+    url(r'^agregar_cliente', 'Principal.views.cliente', name='cliente'),
+    url(r'^guardar_cliente', 'Principal.views.guardar_cliente', name='gcliente'),
+    url(r'^ver_cliente', 'Principal.views.ver_cliente', name='vcliente'),
     url(r'^login','Principal.views.login', name='login'),
     url(r'^listar_orden','Principal.views.listar_orden', name='listar_orden'),
+    url(r'^listar_cliente','Principal.views.listar_cliente', name='listar_cliente'),
+    url(r'^guardar_orden','Principal.views.guardar_orden', name='guardar_orden'),
 
     # url(r'^Coloso/', include('Coloso.foo.urls')),
 

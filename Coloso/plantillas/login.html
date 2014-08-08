@@ -2,76 +2,57 @@
 {%block titulo%}Login{%endblock%}
 
 {%block contenido%}
-<div class="col-xs-6">
-	
-		<a href="" class="thumbnail">
-			<img src="http://spc.fotolog.com/photo/44/14/83/azuucar/1140490409_f.jpg" alt="">
-		</a>
 
-</div>
-<span class="label label-default">
-	Default
-</span>
-<span class="label label-success">
-	success
-</span>
-<span class="label label-info">
-	Inverse
-</span>
-<span class="badge">1</span>
-<span class="badge badge-success">2</span>
-<span class="badge badge-warning">6</span>
-<span class="badge badge-info">5</span>
-<span class="badge badge-inverse">8</span>
-<div class="container">
-	<div class="jumbotron">
-		<div class="page-header">
-			<h1>Hew</h1>
-			<p>Kaska</p>
+<form action="" role="form" class="col-sm-4 col-sm-offset-4">
+	<div class="panel panel-primary text-center">
+		<div class="panel-heading">
+			Login
 		</div>
-		<p><a class="btn btn-primary ">Leer Mas</a></p>
-	</div>
-</div>
-<ul class="breadcrumb">
-	<li>
-		<a href="">Home</a><span class="divider"></span>
-	</li>
-	<li>
-		<a href="">Home</a><span class="divider"></span>
-	</li>
-	<li class="active">Daijobu</li>
-</ul>
-<br>
-		<ul class="pagination pagination">
-			<li class="active"><a href="#">Ant</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li class="active"><a href="#">Prox</a></li>
-		</ul>
-		<ul class="pager">
-			<li><a href="">anterior</a></li>
-			<li><a href="">siguiente</a></li>
-		</ul>
-<br>
-<form action="" role="form" class="col-xs-4 col-xs-offset-4">
-	<h1 style="text-align:center;">Login</h1>
-		<label for="">Nombre</label>
-		<input class="form-control input-default"type="text" name="nombre" id="nombre">
-	<br>
-		<label for="">Contraseña</label>
-		<input class="form-control input-default"type="text" name="pass" id="pass">
-	<br>
-	<div class="form-group">
-		<button type="button" class="btn btn-primary btn-block">
-			Registrar
-			<span class="glyphicon glyphicon-user"></span>
-		</button>		
-		<button type="button" class="btn btn-success btn-block">
-			Enviar
-			<span class="glyphicon glyphicon-ok "></span>
-		</button>
+		<div class="panel-body">
+			<!-- <h1>
+				ASucaR	
+			</h1><br> -->
+			<img src="{{STATIC_URL}}image/logo.png" alt="" height="120" class="img-rounded">
+			<br><br>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+					</span>
+					<input class="form-control input-default"type="text" name="nombre" id="nombre">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+					</span>
+					<input class="form-control input-default"type="text" name="pass" id="pass">
+				</div>
+			</div>
+			<div class="help-block">
+				Para acceder al sistema digite su usuario y contraseña. 
+
+			</div>
+				<!-- <div class="alert alert-danger alert-dismissible" role="alert">
+					El Campo Nombre No debe ir Vacio!!!
+					<button class="close" data-dismiss="alert">x</button>
+				</div> -->
+			<div class="btn-group btn-group-justified">
+				<!-- <div class="btn-group">
+					<button type="button" class="btn btn-primary form-control">
+						Registrar
+						<span class="glyphicon glyphicon-user"></span>
+					</button>		
+				</div> -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary form-control">
+						Acceder
+						<span class="glyphicon glyphicon-ok "></span>
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 		

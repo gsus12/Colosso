@@ -1,202 +1,247 @@
 {% extends 'base.html' %}
+{% block titulo%}Orden de Trabajo{% endblock%}
 {% block contenido %}
 <div class="row-fluid">
-	<form action="" role="form">
-		
-		<h2>Fechas</h2>
-		<div class="col-sm-3">
-			<input type="text" class="form-control" placeholder="Recibida por:" id="recibida_por">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control" placeholder="Fecha de Recibido" id="fecha_recibido">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control" placeholder="Fecha de Entrega" id="fecha_entrega">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control" placeholder="Hora de Entrega" id="hora_entrega">
-		</div>
-	</form>
-</div>
-<div class="row-fluid">
-	<form action="">
-		
-		<h2>Datos</h2>
-		<div class="col-sm-9">
-			<input type="text" class="form-control input-default" id="razon_social" placeholder="Razon Social">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control input-default" id="telefono_cliente" placeholder="Telefono">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control input-default" id="responsable" placeholder="Responsable">
-		</div>
-		<div class="col-sm-2">
-			<select name="" id="tipo_orden" class="form-control">
-				<option value="" default></option>
-				<option value="telefono">Por telefono</option>
-				<option value="personal">Personalmente</option>
-				<option value="orden">Orden Suministro</option>
-			</select>
-		</div>
-		<div class="col-sm-2">
-			<input type="text" class="input-default form-control" Placeholder="Cantidad" id="cantidad_trabajo">
-		</div>
-		<div class="col-sm-5">
-			<select name="" id="trabajo_realizar" class="form-control">
-				<option default>Trabajo a Realizar</option>
-			</select>
-		</div>
-	</form>
-</div>
-<div class="row-fluid">
-	<div class="col-sm-4">
-		<h2>Diseño y Montaje</h2>
-		<div class="row-fluid">
-				<h3>Master</h3>
-				<div class="col-sm-4">
-					<input type="text" id="cantidad_master" class="form-control input-default " Placeholder="Cantidad">
-				</div>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-default" id="tamano_master" placeholder="Tamaño">
-				</div>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-default" id="cantidad_moldes" placeholder="Moldes">
-				</div>
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="emblocado">
-							Emblocado
-						</label>
-					</div>
-				</div>				
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="perforado">
-							Perforado
-						</label>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="engrapado">
-							Engrapado
-						</label>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="suelta">
-							Hojas Sueltas
-						</label>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="engomado">
-							Engomado
-						</label>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="checkbox form-control">
-						<label for="">
-							<input type="checkbox" name="acabado" value="troquelado">
-							Troquelado
-						</label>
-					</div>
-				</div>
-
-				<div class="col-sm-6">
-					<input type="text" class="form-control input-default" Placeholder="Talonarios por Juegos de" id="juegos">
-				</div>
-				<div class="col-sm-6">
-					<input type="text" class="form-control input-default" Placeholder="Otro" id="otro_acabado">
-				</div>	
-
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<h2>Material</h2>
-		<div class="row-fluid">
-			<div class="col-sm-8">
-				<input type="text" class="form-control input-default" id="original" placeholder="Papel Original">
+	<div class="col-sm-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading text-center">
+				Fechas
 			</div>
-			<div class="col-sm-4">
-				<input type="text" class="form-control input-default" id="cantidad_original" placeholder="Cantidad">
+			<div class="panel-body">
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="Recibida por:" id="recibida_por">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="Fecha de Recibido" id="fecha_recibido">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="Fecha de Entrega" id="fecha_entrega">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="Hora de Entrega" id="hora_entrega">
+				</div>
 			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="col-sm-12 text-right">
-				<button class="btn btn-primary">
-					Copia
-					<span class="glyphicon glyphicon-plus"></span>
-				</button>
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="col-sm-8">
-				<input type="text" class="form-control input-default" id="otro_papel" placeholder="Otro">
-			</div>
-			<div class="col-sm-4">
-				<input type="text" class="form-control input-default" id="cantidad_otro" placeholder="Cantidad">
-			</div>
-			<div class="col-sm-12">
-				<input type="text" class="form-control input-default" id="sobrante" placeholder="Sobrante">
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<h2>Corte</h2>
-		<div class="col-sm-6">
-			<input type="text" id="tamano_corte"class="form-control input-default" placeholder="Tamaño Corte">
-		</div>
-		<div class="col-sm-6">
-			<input type="text" id="tamano_trabajo" class="form-control input-default" placeholder="Tamaño Trabajo">
-		</div>
-		<div class="col-sm-12">
-			<input type="text" id="color_tinta" class="form-control input-default" placeholder="Tinta">
-		</div>
-		<div class="col-sm-4">
-			<div class="checkbox form-control">
-				<label for="">
-					<input type="checkbox" name="opcion_tinta" value="opcional">
-					Opcional
-				</label>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="checkbox form-control">
-				<label for="">
-					<input type="checkbox" name="opcion_tinta" value="segun_muestra">
-					S M
-				</label>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="checkbox form-control">
-				<label for="">
-					<input type="checkbox" name="opcion_tinta" value="retiro">
-					Retiro
-				</label>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<input type="text" class="form-control input-default" id="numero_inicio" placeholder="Numerado del">
-		</div>
-		<div class="col-sm-6">
-			<input type="text" class="form-control input-default" id="numero_fin" placeholder="Numerado al">
 		</div>
 	</div>
 </div>
 <div class="row-fluid">
 	<div class="col-sm-12">
-		<h2>Observaciones</h2>
+		<div class="panel panel-primary text-center">
+			<div class="panel-heading">
+				Datos
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-9">
+					<input type="text" class="form-control input-default" id="razon_social" placeholder="Razon Social">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" class="form-control input-default" id="telefono_cliente" placeholder="Telefono">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" class="form-control input-default" id="responsable" placeholder="Responsable">
+				</div>
+				<div class="col-sm-2">
+					<select name="" id="tipo_orden" class="form-control">
+						<option value="" default></option>
+						<option value="telefono">Por telefono</option>
+						<option value="personal">Personalmente</option>
+						<option value="orden">Orden Suministro</option>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" class="input-default form-control" Placeholder="Cantidad" id="cantidad_trabajo">
+				</div>
+				<div class="col-sm-5">
+					<select name="" id="trabajo_realizar" class="form-control">
+						<option default>Trabajo a Realizar</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Diseño y Montaje
+			</div>
+			<div class="panel-body">
+				<div class="row-fluid">
+					<h3>Master</h3>
+					<div class="col-sm-4">
+						<input type="text" id="cantidad_master" class="form-control input-default " Placeholder="Cantidad">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-default" id="tamano_master" placeholder="Tamaño">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-default" id="cantidad_moldes" placeholder="Moldes">
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="emblocado" value="emblocado">
+								Emblocado
+							</label>
+						</div>
+					</div>				
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="perforado" value="perforado">
+								Perforado
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="engrapado" value="engrapado">
+								Engrapado
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="suelta" value="suelta">
+								Hojas Sueltas
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="engomado" value="engomado">
+								Engomado
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox form-control">
+							<label for="">
+								<input type="checkbox" id="troquelado" value="troquelado">
+								Troquelado
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control input-default" Placeholder="Talonarios por Juegos de" id="juegos">
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control input-default" Placeholder="Otro" id="otro_acabado">
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Material
+			</div>
+			<div class="panel-body">
+				
+				<div class="row-fluid">
+					<div class="col-sm-8">
+						<input type="text" class="form-control input-default" id="original" placeholder="Papel Original">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-default" id="cantidad_original" placeholder="Cantidad">
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="col-sm-12 text-right">
+						<button class="btn btn-primary">
+							Copia
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="col-sm-8">
+						<input type="text" class="form-control input-default" id="otro_papel" placeholder="Otro">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-default" id="cantidad_otro" placeholder="Cantidad">
+					</div>
+					<div class="col-sm-12">
+						<input type="text" class="form-control input-default" id="sobrante" placeholder="Sobrante">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Corte
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-6">
+					<input type="text" id="tamano_corte"class="form-control input-default" placeholder="Tamaño Corte">
+				</div>
+				<div class="col-sm-6">
+					<input type="text" id="tamano_trabajo" class="form-control input-default" placeholder="Tamaño Trabajo">
+				</div>
+				<div class="col-sm-12">
+					<input type="text" id="color_tinta" class="form-control input-default" placeholder="Tinta">
+				</div>
+				<div class="col-sm-4">
+					<div class="checkbox form-control">
+						<label for="">
+							<input type="checkbox" id="opcional" value="opcional">
+							Opcional
+						</label>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="checkbox form-control">
+						<label for="">
+							<input type="checkbox" id="segun_muestra" value="segun_muestra">
+							S M
+						</label>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="checkbox form-control">
+						<label for="">
+							<input type="checkbox" id="retiro" value="retiro">
+							Retiro
+						</label>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" class="form-control input-default" id="numero_inicio" placeholder="Numerado del">
+				</div>
+				<div class="col-sm-6">
+					<input type="text" class="form-control input-default" id="numero_fin" placeholder="Numerado al">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="col-sm-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Observaciones
+			</div> 
+			<div class="panel-body">
+				<textarea name="" id="" class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid text-center">
+	<div class="col-sm-12">
+		<a href="/listar_orden" id="cancelar_orden"class="btn btn-danger">
+			Cancelar
+		</a>
+		<a href="" id="guardar_orden" class="btn btn-success">
+			Guardar
+		</a>
 	</div>
 </div>
 {%endblock%}

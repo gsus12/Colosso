@@ -15,13 +15,20 @@ class Usuario(models.Model):
 		return self.nombre_usuario
 
 class Cliente(models.Model):
+	nombre = models.CharField( max_length = 40 )
+	apellido = models.CharField( max_length = 40 )
+	nit = models.CharField( max_length = 20 )
+	
+class Empresa(models.Model):
+	dueno = models.ForeignKey( Cliente )
 	razon_social = models.CharField( max_length = 40 )
 	telefono = models.IntegerField( )
 	direccion = models.CharField( max_length = 40 )
+	ciudad = models.CharField( max_length = 40 )
 
 class Trabajo(models.Model):
 	nombre = models.CharField( max_length = 40 )
-	dueno = models.ForeignKey( Cliente )
+	dueno = models.ForeignKey( Empresa )
 	emblocado = models.BooleanField( )
 	perforado = models.BooleanField( )
 	engrapado = models.BooleanField( )
@@ -36,6 +43,14 @@ class Trabajo(models.Model):
 	tamano_trabajo = models.IntegerField( )
 	tipo_trabajo = models.CharField( max_length = 20 )
 
+class Resolucion( models.Model ):
+	numero = models.IntegerField()
+	tipo = models.CharField( max_length = 10 )
+	fecha = models.DateField()
+	inicio = models.IntegerField()
+	fin = models.IntegerField()
+	prefijo = models.CharField( max_length = 10 )
+	
 class Orden( models.Model ):
 	recibida_por = models.CharField( max_length = 30 )
 	fecha_recibido = models.DateField( )
@@ -57,6 +72,6 @@ class Orden( models.Model ):
 	tinta_opcional = models.BooleanField( )
 	segun_muestra = models.BooleanField( )
 	retiro = models.BooleanField( )
-	prefijo = models.CharField( max_length = 40 )
+	resolucion = models.ForeignKey( Resolucion )
 	numero_inicio = models.IntegerField( max_length = 40 )
 	numero_fin = models.IntegerField( max_length = 40 )

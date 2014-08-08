@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Colosso - {% block titulo %}{% endblock %}</title>
-	<meta name="viewport" content="width=device-width, initi	al-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap-theme.css">
 	<link rel="stylesheet" href="{{STATIC_URL}}css/otro.css">
@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/funcion.js"></script>
 	<style type="text/css">
-
 	</style>
 </head>
 
@@ -29,11 +28,21 @@
 					<a href="/" class="navbar-brand">ASucaR</a>
 				</div>
 				<div class="collapse navbar-collapse"id="nav-page-my-collapse-1">
-					<ul class="nav navbar-nav">
+					<ul id="barra_nav"class="nav navbar-nav">
 						<li class="active"><a href="/">Home</a></li>
 						<li><a href="/listar_orden">Ordenes</a></li>
-						<li><a href="/orden_de_trabajo">Facturacion</a></li>
-						<li><a href="/login">Salir</a></li>
+						<li><a href="/listar_cliente">Facturacion</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Usuario
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Cambiar Contraseña</a></li>
+								<li class="divider"></li>
+								<li><a href="/login">Cerrar Sesion</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
