@@ -8,6 +8,8 @@
 				Ver Cliente
 			</div>
 			<div class="panel-body">
+			
+				<input type="hidden" id="id_cliente" value="{{datos.id}}">
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="">Nit</label>
@@ -39,6 +41,7 @@
 									<th>Telefono</th>
 									<th>Direccion</th>
 									<th>Ciudad</th>
+									<th>Opciones</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,6 +52,17 @@
 										<td>{{data.telefono}}</td>
 										<td>{{data.direccion}}</td>
 										<td>{{data.ciudad}}</td>
+										<td>
+											<button class="btn bnt-sm btn-default modificar_empresa" id="{{data.id}}">
+												<span class="glyphicon glyphicon-pencil">
+												</span>
+											</button>
+											<button class="btn bnt-sm btn-danger eliminar_empresa" id="{{data.id}}">
+												<span class="glyphicon glyphicon-remove">
+													
+												</span>
+											</button>
+										</td>
 									</tr>
 
 								{%endfor%}				
@@ -57,9 +71,49 @@
 					</div>
 					<div class="col-sm-12">
 						<div class="text-right">
-							<button class="btn btn-primary">Empresa
+							<button class="btn btn-primary" id="mas_empresa">Empresa
 								<span class="glyphicon glyphicon-plus"></span>
 							</button>
+						</div>
+					</div>
+					<div class="col-sm-12" id="formulario_nueva_empresa">
+						<h3>Nueva empresa</h3>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input type="text" id="razon_social" class="form-control input-default" Placeholder="Razon Social">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input type="text" class="form-control input-default" id="telefono" placeholder="Telefono">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input type="text" class="form-control input-default" id="direccion" placeholder="Direccion">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input type="text" class="form-control input-default" id="ciudad" placeholder="Ciudad">
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<button class="btn btn-danger" id="cancelar_nueva_empresa">
+									Cancelar
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								<button class="btn btn-success" id="guardar_nueva_empresa">
+									Guardar
+									<span class="glyphicon glyphicon-ok"></span>
+								</button>
+								<button class="btn btn-primary guardar_modificacion_empresa">
+									Modificar	
+									<span class="glyphicon glyphicon-ok"></span>
+								</button>
+							</div>
+
 						</div>
 					</div>
 				</div>

@@ -131,6 +131,39 @@ $(document).ready(function() {
 			}
 		}
 	});
+	$(".modificar_empresa").click(function(){
+		id_empresa = $(this).attr("id");
+		$.ajax({
+			url:'/buscar_empresa/',
+			type:'GET',
+			data:"id_empresa="+id_empresa,
+			success: function(data){
+				$("#formulario_nueva_empresa").css("display","block");
+				$("#razon_social").val(data.razon_social);
+				$("#telefono").val(data.telefono);
+				$("#direccion").val(data.direccion);
+				$("#ciudad").val(data.ciudad);
+				$("#razon_social").prop("disabled","disabled");
+				$(".guardar_modificacion_empresa").css('display','inline-block');
+				$(".guardar_modificacion_empresa").attr("id",id_empresa);
+				$("#guardar_nueva_empresa").css("display","none");
+			}
+		})
+	});
+	$(".guardar_modificacion_empresa").click(function(){
+		
+		var razon_social = $("#razon_social");
+		var telefono = $("#telefono");
+		var direccion = $("#direccion");
+		var ciudad = $("#ciudad");
+		var id_empresa = $(this).attr("id");
+		var tipo = {
+			attr : "id",
+			val : "1"
+		};
+		alert(id_empresa);
+		guardar_empresa(id_empresa,razon_social,telefono,direccion,ciudad,tipo);
+	})
 	$(".ver").click(function(){
 		alert($(this).attr("id"));
 		$.ajax({
@@ -151,6 +184,64 @@ $(document).ready(function() {
 			}
 		})
 	});
+	$("#mas_empresa").click(function(){
+		$("#formulario_nueva_empresa").css("display","block");
+		$("#guardar_nueva_empresa").css("display","inline-block");
+		$(".guardar_modificacion_empresa").css("display","none");
+		limpiador();
+		$("#razon_social").prop("disabled",false);
+
+	})
+	$("#guardar_nueva_empresa").click(function(){
+		var razon_social = $("#razon_social");
+		var telefono = $("#telefono");
+		var direccion = $("#direccion");
+		var ciudad = $("#ciudad");
+		var id_cliente = $("#id_cliente");
+		
+		var tipo = {
+			attr : "id",
+			val : "2"
+		};
+		guardar_empresa(id_cliente,razon_social,telefono,direccion,ciudad,tipo);
+		
+	})
+	function limpiador(){
+		$("#razon_social").val("");
+		$("#telefono").val("");
+		$("#direccion").val("");
+		$("#ciudad").val("");
+		
+	}
+	
+	function guardar_empresa(){
+		var tipo = arguments[5].val;
+		var datos = "tipo="+tipo+"&&";
+		var tope= arguments.length;
+		var i = 0;
+		if (tipo == "1") {
+			i = 1;
+			datos = datos + "id_empresa="+arguments[0]+"&&";
+		}
+		for ( i ; i<tope-1; i ++)
+		{	
+			datos = datos + arguments[i].attr("id")+"="+arguments[i].val() +"&&";
+		}
+		alert(datos);
+		$.ajax({
+			url:'/guardar_empresa/',
+			type:'GET',
+			data:datos,
+			success: function(data){
+				
+				var url = "/ver_cliente/"+data.id_cliente;				
+				redirigir(url);
+			}
+		})
+	}
+	$("#cancelar_nueva_empresa").click(function(){
+		$("#formulario_nueva_empresa").css("display","none");
+	})
 	$(".eliminar").click(function(){
 		id = $(this).attr("id");
 		$.ajax({

@@ -42,16 +42,50 @@ def ver_cliente(request, id_persona):
 	ne = Empresa.objects.all()
 	for i in negocios:
 		print i.razon_social
-	# print negocios.nombre
 	print cliente.nombre
 	print "-----------------"
-	response = { "nombre" : cliente.nombre, "apellido" : cliente.apellido, "nit" : cliente.nit }
-	# return HttpResponse(json.dumps(response),mimetype="application/json")
+	response = { "id":cliente.id,"nombre" : cliente.nombre, "apellido" : cliente.apellido, "nit" : cliente.nit }
 	return render_to_response( "ver_cliente.html", {'datos':response, "negocios":negocios} , context_instance = RequestContext( request ) )
+def guardar_empresa(request):
+	tipo = request.GET['tipo']
+	razon_social = request.GET['razon_social']
+	telefono = request.GET['telefono']
+	direccion = request.GET['direccion']
+	ciudad = request.GET['ciudad']
+	print tipo
+	response = { "id_cliente":"" }
 
+	if tipo == "1":
+		id_empresa = request.GET[ 'id_empresa' ]
+		empresa = Empresa.objects.get( id= id_empresa )
+		empresa.telefono = telefono
+		empresa.direccion = direccion
+		empresa.ciudad = ciudad
+		empresa.save()
+		print empresa.dueno.id
+		response = { "id_cliente" : empresa.dueno.id }
+
+	elif tipo == "2":
+		id_cliente = request.GET['id_cliente']
+		print '---------------'
+		print id_cliente
+		cliente = Cliente.objects.get(id = id_cliente)
+		empresa = Empresa( dueno = cliente , razon_social = razon_social, telefono = telefono, direccion = direccion, ciudad = ciudad)
+		empresa.save()
+		response = {"id_cliente" : id_cliente}
+	return  HttpResponse(json.dumps(response), mimetype = "application/json")
+def buscar_empresa(request):
+	id_empresa = request.GET['id_empresa']
+	empresa = Empresa.objects.get(id = id_empresa)
+	response = {"id":empresa.id,"razon_social":empresa.razon_social,"telefono":empresa.telefono,"direccion":empresa.direccion,"ciudad":empresa.ciudad}
+	print response
+	return HttpResponse(json.dumps(response), mimetype = "application/json")
 def eliminar_cliente(request):
 	identificacion = request.GET['id']
 	cliente = Cliente.objects.get(id = identificacion)
 	cliente.delete()
 	response = { "exito" : identificacion }
 	return HttpResponse(json.dumps(response),mimetype="application/json")
+def catalogo(request):
+	
+	return render_to_response( "catalogo.html", context_instance = RequestContext( request ) )
